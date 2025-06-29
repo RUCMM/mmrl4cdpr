@@ -138,7 +138,7 @@
     <div class="hero-body">
       <img src="static/images/framework.png" alt="MY ALT TEXT"/>
       <h2>
-        Conceptual diagram of the proposed <code>AMPere</code> method for cross-domain multimodal product representation learning. Our network consists of three branches, each responding for a specific domain. For each trainable layer in the network, its parameters are shared across the three branches. An LLM-based ASR text summarizer is deployed to extract <span style="color:blue;">product-specific information</span> from the raw text overwhelmed by <span style="color:red;">abundant uninformative words</span> transcribed from casual chatting of network anchors or live streamers. Except for the summarizer, the network is trained end-to-end.
+        Conceptual diagram of the proposed <code>AMPere</code> method for cross-domain multimodal product representation learning. Our network consists of three branches, each responding to a specific domain, i.e. <em>short-video, live-stream and product-page</em>. For each trainable layer in the network, its parameters are shared across the three branches. An LLM-based ASR text summarizer is deployed to extract <span style="color:blue;">product-specific information</span> from the raw text overwhelmed by <span style="color:red;">abundant uninformative words</span> transcribed from casual chatting of network anchors or live streamers. Except for the summarizer, the network is trained end-to-end.
       </h2>
     </div>
   </div>
@@ -222,6 +222,41 @@
 </div>
 </section>
 <!-- End image carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">
+        Failure case analysis
+      </h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/failed_case_a.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Failure Type-I: Multi-product presence</b>. When multiple products co-present in a query video, <em>e.g.</em> a toilet brush as the current product and a toilet as a surrounding item, the model may incorrectly retrieve product pages of the surrounding item. To resolve such an ambiguity, product localization is required.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/failed_case_b.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Failure Type-II: Insufficient multimodal fusion</b>. Although our LLM based text summarizer has successfully extracted product names, <em>e.g.</em> solid bracelet, the result that our model returns as the first hit a photo of a hand with a ring suggests insufficient fusion of the visual and textual inputs. To fully unlock the value of the ASR text, adaptive multimodal fusion requires further research.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/failed_case_c.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Failure Type-III: Inaccurate text</b>. This type of failures occurs when the LLM-summarized text, <em>e.g.</em> "power bank", is not sufficiently accurate to describe the product of "pocket-portable power bank" shown in the live stream. How to incorporate the visual context into ASR text summarization for more accurate and fine-grained textual information extraction deserves future exploration.
+       </h2>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
 
   <footer class="footer">
   <div class="container">
